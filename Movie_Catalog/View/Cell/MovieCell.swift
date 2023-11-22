@@ -10,7 +10,8 @@ import Kingfisher
 
 
 class MovieCell: UITableViewCell {
-    
+    var onTapToGoToMovieDetail: (() -> Void)?
+
     let urlBaseImage = "https://image.tmdb.org/t/p/w500/"
     
     @IBOutlet weak var labelTitleMovie: UILabel!
@@ -18,7 +19,9 @@ class MovieCell: UITableViewCell {
     @IBOutlet weak var tfDescriptionMovie: UITextView!
     @IBOutlet weak var lblScrollForMore: UILabel!
     
+    @IBOutlet weak var tapView: UIView!
     
+    @IBOutlet weak var labelTapTitle: UILabel!
     
     @IBOutlet weak var progressBar: RoundProgressBar!
     
@@ -27,7 +30,16 @@ class MovieCell: UITableViewCell {
         super.awakeFromNib()
         self.tfDescriptionMovie.delegate = self
         
+        let tapGoToDetails = UITapGestureRecognizer(target: self, action: #selector(goToMovieDetails))
+        self.tapView.addGestureRecognizer(tapGoToDetails)
+        self.labelTapTitle.text = "Tap to see the details ;)"
     }
+    
+
+    @objc func goToMovieDetails() {
+        onTapToGoToMovieDetail?()
+    }
+    
     
     func configureCell(movie: Movie) {
         self.labelTitleMovie.text = movie.title ?? ""

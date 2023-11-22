@@ -39,6 +39,17 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aFL-pM-A8s">
+                        <rect key="frame" x="661.33333333333337" y="10" width="22.666666666666629" height="9.6666666666666643"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="8"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CGg-iB-twt" userLabel="tapView">
+                        <rect key="frame" x="0.0" y="0.0" width="699" height="500"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="black" editable="NO" text="Description" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jOk-ps-f8n">
                         <rect key="frame" x="190" y="55.333333333333343" width="489" height="424.66666666666663"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -64,8 +75,10 @@
                     <constraint firstItem="ax2-Ru-rxZ" firstAttribute="top" secondItem="C1l-tA-PEA" secondAttribute="top" constant="31" id="JFc-Q4-2Ka"/>
                     <constraint firstAttribute="bottom" secondItem="jOk-ps-f8n" secondAttribute="bottom" constant="20" id="Q4d-ac-640"/>
                     <constraint firstAttribute="trailing" secondItem="JE4-wS-Gjc" secondAttribute="trailing" constant="20" id="Qfh-95-AqN"/>
+                    <constraint firstItem="aFL-pM-A8s" firstAttribute="top" secondItem="C1l-tA-PEA" secondAttribute="top" constant="10" id="RpF-Qj-UJI"/>
                     <constraint firstItem="6wM-RS-UT8" firstAttribute="leading" secondItem="ax2-Ru-rxZ" secondAttribute="leading" constant="-10" id="Wc1-RO-KgE"/>
                     <constraint firstAttribute="trailing" secondItem="jOk-ps-f8n" secondAttribute="trailing" constant="20" id="Xwy-Xi-3gW"/>
+                    <constraint firstAttribute="trailing" secondItem="aFL-pM-A8s" secondAttribute="trailing" constant="15" id="gq0-hw-I1g"/>
                     <constraint firstItem="JE4-wS-Gjc" firstAttribute="leading" secondItem="ax2-Ru-rxZ" secondAttribute="trailing" constant="20" id="hiW-pV-ZMf"/>
                     <constraint firstItem="jyz-bu-zgH" firstAttribute="trailing" secondItem="jOk-ps-f8n" secondAttribute="trailing" id="k44-wA-tVv"/>
                     <constraint firstItem="ax2-Ru-rxZ" firstAttribute="leading" secondItem="C1l-tA-PEA" secondAttribute="leadingMargin" id="noC-QU-aYN"/>
@@ -78,9 +91,11 @@
             <viewLayoutGuide key="safeArea" id="A81-V2-eHZ"/>
             <connections>
                 <outlet property="imageMovie" destination="ax2-Ru-rxZ" id="kba-nA-KW1"/>
+                <outlet property="labelTapTitle" destination="aFL-pM-A8s" id="0KW-hv-jNz"/>
                 <outlet property="labelTitleMovie" destination="JE4-wS-Gjc" id="wER-ag-hXK"/>
                 <outlet property="lblScrollForMore" destination="jyz-bu-zgH" id="Lfn-Tz-Aym"/>
                 <outlet property="progressBar" destination="6wM-RS-UT8" id="VVP-wJ-ZvZ"/>
+                <outlet property="tapView" destination="CGg-iB-twt" id="rk4-SD-Ukb"/>
                 <outlet property="tfDescriptionMovie" destination="jOk-ps-f8n" id="k84-9m-3Sb"/>
             </connections>
             <point key="canvasLocation" x="48.091603053435115" y="89.436619718309871"/>

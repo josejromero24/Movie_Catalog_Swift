@@ -12,9 +12,11 @@ class MovieViewModel {
     
     var showError: (() -> Void)?
     var errorMessage: String = ""
-    
     var showLoader: Bool = true
-
+    
+    
+    var onTapToGoMovieDetails: (() -> Void)?
+    var detailsToBePassed: String?
     
     private var movies: [Movie] = []
     private var filteredMovies: [Movie] = []
@@ -65,4 +67,5 @@ class MovieViewModel {
     func getIsFilterUsed() -> Bool {
         return self.isFilterUsed
     }
+    
 }

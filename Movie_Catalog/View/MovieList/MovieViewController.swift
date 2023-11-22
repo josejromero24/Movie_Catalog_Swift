@@ -36,6 +36,8 @@ class MovieViewController: UIViewController, UITableViewDelegate {
     func configureView(){
         self.labelTitle.text = "TheMovieDB"
         self.searchBar.delegate = self
+        
+        
     }
     
     func configureTableView(){
@@ -97,6 +99,14 @@ extension MovieViewController: UITableViewDataSource, UITableViewDataSourcePrefe
             cell.configureCell(movie: movie)
             updateCell(indexPath: indexPath)
             
+               cell.onTapToGoToMovieDetail = {
+                   self.viewModel.detailsToBePassed = "Información específica de la celda \(indexPath.row)"
+                   self.viewModel.onTapToGoMovieDetails?()
+                   
+                   
+                   print("JJASD CELDA SELECCINADA ---> ", movie.title)
+               }
+        
             return cell
     }
     
