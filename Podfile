@@ -7,6 +7,7 @@ target 'Movie_Catalog' do
 
   # Pods for Movie_Catalog
   pod 'Alamofire', '~> 5.0'
+  pod 'Kingfisher', '~> 7.0'
 
   target 'Movie_CatalogTests' do
     inherit! :search_paths

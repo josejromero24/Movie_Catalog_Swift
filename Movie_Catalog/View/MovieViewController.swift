@@ -15,17 +15,10 @@ class MovieViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         tableView.dataSource = self
         tableView.prefetchDataSource = self
-        
-        
-        
         tableView.register(UINib.init(nibName: nameCell, bundle: nil), forCellReuseIdentifier: nameCell)
         
-        
-        // Llama a la función para cargar las películas
         loadMovies()
     }
     
@@ -45,11 +38,22 @@ extension MovieViewController: UITableViewDataSource, UITableViewDataSourcePrefe
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let movie = viewModel.movie(at: indexPath.row)
-      
         let cell = tableView.dequeueReusableCell(withIdentifier: nameCell, for: indexPath) as! MovieCell
-       
+        cell.layoutIfNeeded()
         cell.configureCell(movie: movie)
+        updateCell(indexPath: indexPath)
+        
         return cell
+    }
+    
+    
+    // We do the update to show the scroll placeholder or not without having to scroll first to refresh the view
+    func updateCell(indexPath: IndexPath) {
+        DispatchQueue.main.async {
+            if let cell = self.tableView.cellForRow(at: indexPath) as? MovieCell {
+                cell.isShowPlaceholder()
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {

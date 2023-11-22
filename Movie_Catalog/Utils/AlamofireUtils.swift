@@ -2,7 +2,7 @@
 //  AlamofireUtils.swift
 //  Movie_Catalog
 //
-//  Created by José Antonio Camacho on 21/11/23.
+//  Created by José Javier Romero on 21/11/23.
 //
 
 import Alamofire
