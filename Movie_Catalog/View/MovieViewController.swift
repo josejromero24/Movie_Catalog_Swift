@@ -10,6 +10,8 @@ import UIKit
 class MovieViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var loaderIndicator: UIActivityIndicatorView!
+    
     let nameCell = "MovieCell"
     let viewModel = MovieViewModel()
     
@@ -27,6 +29,7 @@ class MovieViewController: UIViewController {
     }
     
     func configureTableView(){
+        self.isShowLoader()
         tableView.dataSource = self
         tableView.prefetchDataSource = self
         tableView.register(UINib.init(nibName: nameCell, bundle: nil), forCellReuseIdentifier: nameCell)
@@ -35,12 +38,27 @@ class MovieViewController: UIViewController {
     }
     
     func loadMovies() {
+        self.isShowLoader()
         viewModel.getMovies { [weak self] in
             DispatchQueue.main.async {
+                self?.isShowLoader()
                 self?.tableView.reloadData()
             }
         }
     }
+    
+    
+    func isShowLoader() {
+        if viewModel.showLoader == true {
+            self.loaderIndicator.startAnimating()
+            self.loaderIndicator.isHidden = false
+        } else {
+            self.loaderIndicator.stopAnimating()
+            self.loaderIndicator.isHidden = true
+        }
+      }
+    
+    
 }
 
 extension MovieViewController: UITableViewDataSource, UITableViewDataSourcePrefetching {

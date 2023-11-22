@@ -12,6 +12,8 @@ class MovieViewModel {
     
     var showError: (() -> Void)?
     var errorMessage: String = ""
+    
+    var showLoader: Bool = true
 
     
     private var movies: [Movie] = []
@@ -19,6 +21,7 @@ class MovieViewModel {
     
     
     func getMovies(completion: @escaping () -> Void) {
+        self.showLoader = true
         MovieService.shared.getPopularMovies(page: currentPage) { [weak self] result in
             guard let self = self else { return }
             
@@ -31,7 +34,8 @@ class MovieViewModel {
                 self.errorMessage = error.localizedDescription
                 self.showError?()
             }
-            completion()
+                self.showLoader = false
+                completion()
         }
     }
     
