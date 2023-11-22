@@ -19,11 +19,20 @@
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="product_default" translatesAutoresizingMaskIntoConstraints="NO" id="ax2-Ru-rxZ">
                         <rect key="frame" x="20" y="31" width="150" height="200"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="150" id="RcI-7M-9gh"/>
                             <constraint firstAttribute="height" constant="200" id="vE2-Cx-mZ9"/>
                         </constraints>
                     </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6wM-RS-UT8" userLabel="RatingView" customClass="RoundProgressBar" customModule="Movie_Catalog" customModuleProvider="target">
+                        <rect key="frame" x="10" y="21" width="30" height="30"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="l8p-Yf-bm5"/>
+                            <constraint firstAttribute="width" constant="30" id="pxu-AM-rhg"/>
+                        </constraints>
+                    </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JE4-wS-Gjc">
                         <rect key="frame" x="190" y="31" width="489" height="19.333333333333329"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
@@ -55,10 +64,12 @@
                     <constraint firstItem="ax2-Ru-rxZ" firstAttribute="top" secondItem="C1l-tA-PEA" secondAttribute="top" constant="31" id="JFc-Q4-2Ka"/>
                     <constraint firstAttribute="bottom" secondItem="jOk-ps-f8n" secondAttribute="bottom" constant="20" id="Q4d-ac-640"/>
                     <constraint firstAttribute="trailing" secondItem="JE4-wS-Gjc" secondAttribute="trailing" constant="20" id="Qfh-95-AqN"/>
+                    <constraint firstItem="6wM-RS-UT8" firstAttribute="leading" secondItem="ax2-Ru-rxZ" secondAttribute="leading" constant="-10" id="Wc1-RO-KgE"/>
                     <constraint firstAttribute="trailing" secondItem="jOk-ps-f8n" secondAttribute="trailing" constant="20" id="Xwy-Xi-3gW"/>
                     <constraint firstItem="JE4-wS-Gjc" firstAttribute="leading" secondItem="ax2-Ru-rxZ" secondAttribute="trailing" constant="20" id="hiW-pV-ZMf"/>
                     <constraint firstItem="jyz-bu-zgH" firstAttribute="trailing" secondItem="jOk-ps-f8n" secondAttribute="trailing" id="k44-wA-tVv"/>
                     <constraint firstItem="ax2-Ru-rxZ" firstAttribute="leading" secondItem="C1l-tA-PEA" secondAttribute="leadingMargin" id="noC-QU-aYN"/>
+                    <constraint firstItem="6wM-RS-UT8" firstAttribute="top" secondItem="ax2-Ru-rxZ" secondAttribute="top" constant="-10" id="pjl-yM-6Bh"/>
                     <constraint firstItem="jOk-ps-f8n" firstAttribute="leading" secondItem="ax2-Ru-rxZ" secondAttribute="trailing" constant="20" id="q3F-S3-yHc"/>
                     <constraint firstItem="jyz-bu-zgH" firstAttribute="bottom" secondItem="jOk-ps-f8n" secondAttribute="bottom" id="rYG-TP-tWR"/>
                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ax2-Ru-rxZ" secondAttribute="bottom" constant="20" id="sPM-vD-Qzp"/>
@@ -69,6 +80,7 @@
                 <outlet property="imageMovie" destination="ax2-Ru-rxZ" id="kba-nA-KW1"/>
                 <outlet property="labelTitleMovie" destination="JE4-wS-Gjc" id="wER-ag-hXK"/>
                 <outlet property="lblScrollForMore" destination="jyz-bu-zgH" id="Lfn-Tz-Aym"/>
+                <outlet property="progressBar" destination="6wM-RS-UT8" id="VVP-wJ-ZvZ"/>
                 <outlet property="tfDescriptionMovie" destination="jOk-ps-f8n" id="k84-9m-3Sb"/>
             </connections>
             <point key="canvasLocation" x="48.091603053435115" y="89.436619718309871"/>

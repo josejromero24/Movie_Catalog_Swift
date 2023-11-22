@@ -19,9 +19,14 @@ class MovieCell: UITableViewCell {
     @IBOutlet weak var lblScrollForMore: UILabel!
     
     
+    
+    @IBOutlet weak var progressBar: RoundProgressBar!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         self.tfDescriptionMovie.delegate = self
+        
     }
     
     func configureCell(movie: Movie) {
@@ -31,6 +36,10 @@ class MovieCell: UITableViewCell {
         self.tfDescriptionMovie.text = movie.overview ?? ""
         self.lblScrollForMore.layer.cornerRadius = 10
         self.lblScrollForMore.layer.masksToBounds = true
+        
+        self.progressBar.setProgress(Float(movie.voteAverage ?? 0.0))
+        
+        
     }
     
     
@@ -69,11 +78,8 @@ extension MovieCell: UITextViewDelegate{
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
             if scrollView == tfDescriptionMovie {
-                print("El UITextView está haciendo scroll.")
-                
                 self.hidePlaceholder()
             }
         }
-    
 }
 
