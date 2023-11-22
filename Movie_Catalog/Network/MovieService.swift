@@ -12,9 +12,6 @@ class MovieService {
     
     private init() {}
     
-    
-    
-    
     func getPopularMovies(page: Int, completion: @escaping (Result<[Movie], Error>) -> Void) {
      
         let headers = AlamofireUtils.createHeaders()

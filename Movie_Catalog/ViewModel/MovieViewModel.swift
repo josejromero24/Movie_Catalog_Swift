@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 
 class MovieViewModel {
@@ -14,16 +15,10 @@ class MovieViewModel {
     var errorMessage: String = ""
     var showLoader: Bool = true
     
-    
-    var onTapToGoMovieDetails: (() -> Void)?
-    var detailsToBePassed: String?
-    
     private var movies: [Movie] = []
     private var filteredMovies: [Movie] = []
     private var currentPage = 1
     private var isFilterUsed = false
-    
-    
     
     func getMovies(completion: @escaping () -> Void) {
         self.showLoader = true
@@ -67,5 +62,16 @@ class MovieViewModel {
     func getIsFilterUsed() -> Bool {
         return self.isFilterUsed
     }
+    
+    
+    
+    func didSelectRow(at indexPath: IndexPath, navigationController: UINavigationController?) {
+           let selectedCellViewModel = filteredMovies[indexPath.row]
+
+           let detalleViewController = UIStoryboard(name: "MovieDetailViewController", bundle: nil).instantiateViewController(withIdentifier: "MovieDetailViewController") as! MovieDetailViewController
+
+        detalleViewController.movieID = "\(selectedCellViewModel.id ?? 0)"
+           navigationController?.pushViewController(detalleViewController, animated: true)
+       }
     
 }

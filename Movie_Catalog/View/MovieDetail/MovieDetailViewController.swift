@@ -12,8 +12,14 @@ import UIKit
 
 class MovieDetailViewController: UIViewController{
     
+    @IBOutlet weak var testTitle: UILabel!
+    var movieID = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print("JJASD MovieID ---> ", movieID)
+        self.testTitle.text = movieID
         
     }
     

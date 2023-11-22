@@ -34,7 +34,7 @@ class MovieViewController: UIViewController, UITableViewDelegate {
     }
     
     func configureView(){
-        self.labelTitle.text = "TheMovieDB"
+        self.title = "TheMovieDB"
         self.searchBar.delegate = self
         
         
@@ -91,25 +91,19 @@ extension MovieViewController: UITableViewDataSource, UITableViewDataSourcePrefe
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        print("JJASD self.viewModel.numberOfMovies() ---> ", self.viewModel.numberOfMovies())
-        
             let movie = viewModel.movie(at: indexPath.row)
             let cell = tableView.dequeueReusableCell(withIdentifier: nameCell, for: indexPath) as! MovieCell
             cell.layoutIfNeeded()
             cell.configureCell(movie: movie)
             updateCell(indexPath: indexPath)
             
-               cell.onTapToGoToMovieDetail = {
-                   self.viewModel.detailsToBePassed = "Información específica de la celda \(indexPath.row)"
-                   self.viewModel.onTapToGoMovieDetails?()
-                   
-                   
-                   print("JJASD CELDA SELECCINADA ---> ", movie.title)
-               }
-        
             return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+          viewModel.didSelectRow(at: indexPath, navigationController: navigationController)
+      }
+
     
     // We do the update to show the scroll placeholder or not without having to scroll first to refresh the view
     func updateCell(indexPath: IndexPath) {

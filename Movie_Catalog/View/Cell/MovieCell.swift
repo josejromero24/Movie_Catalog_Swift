@@ -10,34 +10,20 @@ import Kingfisher
 
 
 class MovieCell: UITableViewCell {
-    var onTapToGoToMovieDetail: (() -> Void)?
-
     let urlBaseImage = "https://image.tmdb.org/t/p/w500/"
     
     @IBOutlet weak var labelTitleMovie: UILabel!
     @IBOutlet weak var imageMovie: UIImageView!
     @IBOutlet weak var tfDescriptionMovie: UITextView!
     @IBOutlet weak var lblScrollForMore: UILabel!
-    
     @IBOutlet weak var tapView: UIView!
-    
     @IBOutlet weak var labelTapTitle: UILabel!
-    
     @IBOutlet weak var progressBar: RoundProgressBar!
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()
         self.tfDescriptionMovie.delegate = self
-        
-        let tapGoToDetails = UITapGestureRecognizer(target: self, action: #selector(goToMovieDetails))
-        self.tapView.addGestureRecognizer(tapGoToDetails)
         self.labelTapTitle.text = "Tap to see the details ;)"
-    }
-    
-
-    @objc func goToMovieDetails() {
-        onTapToGoToMovieDetail?()
     }
     
     
@@ -48,10 +34,7 @@ class MovieCell: UITableViewCell {
         self.tfDescriptionMovie.text = movie.overview ?? ""
         self.lblScrollForMore.layer.cornerRadius = 10
         self.lblScrollForMore.layer.masksToBounds = true
-        
         self.progressBar.setProgress(Float(movie.voteAverage ?? 0.0))
-        
-        
     }
     
     
@@ -81,13 +64,11 @@ class MovieCell: UITableViewCell {
         self.lblScrollForMore.isHidden = true
     }
     
-    
 }
 
 
 
 extension MovieCell: UITextViewDelegate{
-    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
             if scrollView == tfDescriptionMovie {
                 self.hidePlaceholder()
