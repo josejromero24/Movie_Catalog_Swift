@@ -12,6 +12,14 @@ import Kingfisher
 class MovieCell: UITableViewCell {
     let urlBaseImage = "https://image.tmdb.org/t/p/w500/"
     
+// We make an override of setSelected to set the color to white so that it does not remain "pressed".
+       override func setSelected(_ selected: Bool, animated: Bool) {
+           super.setSelected(selected, animated: animated)
+           if selected {
+               contentView.backgroundColor = UIColor.white
+           }
+       }
+    
     @IBOutlet weak var labelTitleMovie: UILabel!
     @IBOutlet weak var imageMovie: UIImageView!
     @IBOutlet weak var tfDescriptionMovie: UITextView!
