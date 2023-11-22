@@ -9,17 +9,29 @@ import UIKit
 
 class MovieViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
-
+    
     let nameCell = "MovieCell"
     let viewModel = MovieViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        viewModel.showError = {
+            DispatchQueue.main.async {
+                self.showAlert(self.viewModel.errorMessage, reloadData: {
+                    self.tableView.reloadData()
+                })
+            }
+        }
+        self.configureTableView()
+    }
+    
+    func configureTableView(){
         tableView.dataSource = self
         tableView.prefetchDataSource = self
         tableView.register(UINib.init(nibName: nameCell, bundle: nil), forCellReuseIdentifier: nameCell)
         
-        loadMovies()
+        self.loadMovies()
     }
     
     func loadMovies() {
@@ -60,7 +72,7 @@ extension MovieViewController: UITableViewDataSource, UITableViewDataSourcePrefe
         
         // We check if the last visible cell is the last one loaded, if it is we get the following page
         if let lastVisibleIndexPath = indexPaths.last,
-            lastVisibleIndexPath.row == viewModel.numberOfMovies() - 1 {
+           lastVisibleIndexPath.row == viewModel.numberOfMovies() - 1 {
             loadMovies()
         }
     }

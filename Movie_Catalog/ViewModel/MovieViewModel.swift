@@ -7,9 +7,16 @@
 
 import Foundation
 
+
 class MovieViewModel {
+    
+    var showError: (() -> Void)?
+    var errorMessage: String = ""
+
+    
     private var movies: [Movie] = []
     private var currentPage = 1
+    
     
     func getMovies(completion: @escaping () -> Void) {
         MovieService.shared.getPopularMovies(page: currentPage) { [weak self] result in
@@ -20,9 +27,10 @@ class MovieViewModel {
                 self.movies.append(contentsOf: newMovies)
                 self.currentPage += 1
             case .failure(let error):
-                print("Error fetching movies: \(error.localizedDescription)")
+                print("Error getMovies: \(error.localizedDescription)")
+                self.errorMessage = error.localizedDescription
+                self.showError?()
             }
-            
             completion()
         }
     }
@@ -34,4 +42,5 @@ class MovieViewModel {
     func movie(at index: Int) -> Movie {
         return movies[index]
     }
+    
 }
