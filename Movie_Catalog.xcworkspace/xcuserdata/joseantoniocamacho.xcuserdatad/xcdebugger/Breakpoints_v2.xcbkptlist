@@ -30,8 +30,8 @@
             filePath = "Movie_Catalog/ViewModel/MovieViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
             landmarkName = "getMovies(completion:)"
             landmarkType = "7">
             <Locations>

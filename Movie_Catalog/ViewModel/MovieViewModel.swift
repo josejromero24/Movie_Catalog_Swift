@@ -17,7 +17,10 @@ class MovieViewModel {
 
     
     private var movies: [Movie] = []
+    private var filteredMovies: [Movie] = []
     private var currentPage = 1
+    private var isFilterUsed = false
+    
     
     
     func getMovies(completion: @escaping () -> Void) {
@@ -28,6 +31,7 @@ class MovieViewModel {
             switch result {
             case .success(let newMovies):
                 self.movies.append(contentsOf: newMovies)
+                self.filteredMovies = self.movies
                 self.currentPage += 1
             case .failure(let error):
                 print("Error getMovies: \(error.localizedDescription)")
@@ -40,11 +44,25 @@ class MovieViewModel {
     }
     
     func numberOfMovies() -> Int {
-        return movies.count
+        return filteredMovies.count
     }
     
     func movie(at index: Int) -> Movie {
-        return movies[index]
+        return filteredMovies[index]
     }
     
+    
+    func searchMovieByTitle(with searchText: String) {
+                if searchText.isEmpty {
+                    self.isFilterUsed = false
+                    filteredMovies = movies
+                } else {
+                    self.isFilterUsed = true
+                    filteredMovies = movies.filter { $0.title!.lowercased().contains(searchText.lowercased()) }
+                }
+       }
+    
+    func getIsFilterUsed() -> Bool {
+        return self.isFilterUsed
+    }
 }
