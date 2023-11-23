@@ -34,8 +34,7 @@ class MovieViewController: UIViewController, UITableViewDelegate {
     func configureView(){
         self.title = "TheMovieDB"
         self.searchBar.delegate = self
-        
-        
+        self.searchBar.placeholder = NSLocalizedString("searchBarPlaceHolder", comment: "")
     }
     
     func configureTableView(){

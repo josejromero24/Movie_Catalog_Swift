@@ -31,10 +31,9 @@ class MovieDetailViewController: UIViewController{
     }
     
     func configureNavigation(){
-        
-        self.title = "Details"
+        self.title = NSLocalizedString("detailsTitle", comment: "")
         let backButton = UIBarButtonItem()
-        backButton.title = "Movie List"
+        backButton.title = NSLocalizedString("movieListTitle", comment: "")
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
     }
     
@@ -43,9 +42,6 @@ class MovieDetailViewController: UIViewController{
         
         viewModel.getMovieDetail(movieId: movieID) { [weak self] in
             DispatchQueue.main.async {
-                
-                //self?.isShowLoader()
-                print("JJASD Show Loader")
                 self?.configureView()
             }
         }
@@ -55,12 +51,8 @@ class MovieDetailViewController: UIViewController{
     func configureView(){
         self.imgPoster.setShadowBorder()
         
-        
-        
-        
         if viewModel.getMovieDetail().id != 0 {
             let details = viewModel.getMovieDetail()
-            
             
             guard let posterPath = details.posterPath else {
                 print("Error on get posterPath")
@@ -70,7 +62,6 @@ class MovieDetailViewController: UIViewController{
                 print("Error on get backdropPath")
                 return
             }
-            
             
             let urlImgPoster = "\(AlamofireUtils.getUrlBaseImage())\(posterPath)"
             let urlImgBackdrop = "\(AlamofireUtils.getUrlBaseImage())\(backdropPath)"
@@ -82,11 +73,9 @@ class MovieDetailViewController: UIViewController{
             
             if let average = details.voteAverage {
                 
-                var formatAverage = String(format: "%.2f", average)
+                let formatAverage = String(format: "%.2f", average)
                 self.lblRating.text = "\(formatAverage) / 10 ⭐"
             }
-            
-            
         }
     }
     

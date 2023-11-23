@@ -26,13 +26,15 @@ class MovieCell: UITableViewCell {
     @IBOutlet weak var tapView: UIView!
     @IBOutlet weak var labelTapTitle: UILabel!
     @IBOutlet weak var progressBar: RoundProgressBar!
+
     
     override func awakeFromNib() {
         super.awakeFromNib()
         self.tfDescriptionMovie.delegate = self
-        self.labelTapTitle.text = "Tap to see the details ;)"
+        self.labelTapTitle.text = NSLocalizedString("tapToSeeDetails", comment: "")
+        
+        self.lblScrollForMore.text = NSLocalizedString("scrollReadMore", comment: "")
     }
-    
     
     func configureCell(movie: Movie) {
         self.labelTitleMovie.text = movie.title ?? ""
