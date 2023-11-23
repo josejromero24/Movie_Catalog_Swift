@@ -35,13 +35,19 @@ class MovieViewModel {
                 self.errorMessage = error.localizedDescription
                 self.showError?()
             }
-                self.showLoader = false
-                completion()
+            self.showLoader = false
+            completion()
         }
     }
     
     func numberOfMovies() -> Int {
-        return filteredMovies.count
+        var result = 0
+        if filteredMovies.isEmpty {
+            result = 0
+        } else {
+            result = filteredMovies.count
+        }
+        return result
     }
     
     func movie(at index: Int) -> Movie {
@@ -50,28 +56,27 @@ class MovieViewModel {
     
     
     func searchMovieByTitle(with searchText: String) {
-                if searchText.isEmpty {
-                    self.isFilterUsed = false
-                    filteredMovies = movies
-                } else {
-                    self.isFilterUsed = true
-                    filteredMovies = movies.filter { $0.title!.lowercased().contains(searchText.lowercased()) }
-                }
-       }
+        if searchText.isEmpty {
+            self.isFilterUsed = false
+            filteredMovies = movies
+        } else {
+            self.isFilterUsed = true
+            filteredMovies = movies.filter { $0.title!.lowercased().contains(searchText.lowercased()) }
+        }
+    }
     
     func getIsFilterUsed() -> Bool {
         return self.isFilterUsed
     }
     
     
-    
     func didSelectRow(at indexPath: IndexPath, navigationController: UINavigationController?) {
-           let selectedCellViewModel = filteredMovies[indexPath.row]
-
-           let detalleViewController = UIStoryboard(name: "MovieDetailViewController", bundle: nil).instantiateViewController(withIdentifier: "MovieDetailViewController") as! MovieDetailViewController
-
-        detalleViewController.movieID = "\(selectedCellViewModel.id ?? 0)"
-           navigationController?.pushViewController(detalleViewController, animated: true)
-       }
+        let selectedCellViewModel = filteredMovies[indexPath.row]
+        
+        let detalleViewController = UIStoryboard(name: "MovieDetailViewController", bundle: nil).instantiateViewController(withIdentifier: "MovieDetailViewController") as! MovieDetailViewController
+        
+        detalleViewController.movieID = selectedCellViewModel.id ?? 0
+        navigationController?.pushViewController(detalleViewController, animated: true)
+    }
     
 }

@@ -24,8 +24,6 @@ class MovieViewController: UIViewController, UITableViewDelegate {
             DispatchQueue.main.async {
                 self.showAlert(self.viewModel.errorMessage, reloadData: {
                     self.tableView.reloadData()
-                    
-                    
                 })
             }
         }
@@ -70,8 +68,6 @@ class MovieViewController: UIViewController, UITableViewDelegate {
         }
       }
     
-    
-    
     // Hide the keyboard when scrolling
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         view.endEditing(true)
@@ -85,18 +81,17 @@ class MovieViewController: UIViewController, UITableViewDelegate {
 
 
 extension MovieViewController: UITableViewDataSource, UITableViewDataSourcePrefetching {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfMovies()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
             let movie = viewModel.movie(at: indexPath.row)
             let cell = tableView.dequeueReusableCell(withIdentifier: nameCell, for: indexPath) as! MovieCell
             cell.layoutIfNeeded()
             cell.configureCell(movie: movie)
             updateCell(indexPath: indexPath)
-            
             return cell
     }
     
@@ -119,7 +114,6 @@ extension MovieViewController: UITableViewDataSource, UITableViewDataSourcePrefe
         // We check if the last visible cell is the last one loaded, if it is we get the following page
         if let lastVisibleIndexPath = indexPaths.last,
            lastVisibleIndexPath.row == viewModel.numberOfMovies() - 1 {
-            
             if !self.viewModel.getIsFilterUsed() {
                 loadMovies()
             }

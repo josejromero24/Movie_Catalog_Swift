@@ -9,18 +9,85 @@ import Foundation
 
 
 import UIKit
+import Kingfisher
 
 class MovieDetailViewController: UIViewController{
     
-    @IBOutlet weak var testTitle: UILabel!
-    var movieID = ""
+    var movieID = 0
+    let viewModel = MovieDetailViewModel()
     
+    @IBOutlet weak var imgBackdrop: UIImageView!
+    @IBOutlet weak var imgPoster: UIImageView!
+    
+    @IBOutlet weak var lblTitle: UILabel!
+    @IBOutlet weak var tvOverview: UITextView!
+    
+    @IBOutlet weak var lblRating: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.configureNavigation()
+        self.loadMovieDetail()
         
-        print("JJASD MovieID ---> ", movieID)
-        self.testTitle.text = movieID
+    }
+    
+    func configureNavigation(){
         
+        self.title = "Details"
+        let backButton = UIBarButtonItem()
+        backButton.title = "Movie List"
+        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
+    }
+    
+    
+    func loadMovieDetail() {
+        
+        viewModel.getMovieDetail(movieId: movieID) { [weak self] in
+            DispatchQueue.main.async {
+                
+                //self?.isShowLoader()
+                print("JJASD Show Loader")
+                self?.configureView()
+            }
+        }
+    }
+    
+    
+    func configureView(){
+        self.imgPoster.setShadowBorder()
+        
+        
+        
+        
+        if viewModel.getMovieDetail().id != 0 {
+            let details = viewModel.getMovieDetail()
+            
+            
+            guard let posterPath = details.posterPath else {
+                print("Error on get posterPath")
+                return
+            }
+            guard let backdropPath = details.backdropPath else {
+                print("Error on get backdropPath")
+                return
+            }
+            
+            
+            let urlImgPoster = "\(AlamofireUtils.getUrlBaseImage())\(posterPath)"
+            let urlImgBackdrop = "\(AlamofireUtils.getUrlBaseImage())\(backdropPath)"
+            self.imgBackdrop.kf.setImage(with: URL(string: urlImgBackdrop))
+            self.imgPoster.kf.setImage(with: URL(string: urlImgPoster))
+            
+            self.lblTitle.text = details.title
+            self.tvOverview.text = details.overview
+            
+            if let average = details.voteAverage {
+                
+                var formatAverage = String(format: "%.2f", average)
+                self.lblRating.text = "\(formatAverage) / 10 ⭐"
+            }
+            
+            
+        }
     }
     
 }

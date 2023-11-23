@@ -3,4 +3,165 @@
    uuid = "AF524623-A9F0-4922-8E4A-C574BECB0FF3"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AC4D1492-6751-4358-9338-3641E074E734"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Movie_Catalog/Network/MovieService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "getMovieDetail(movieId:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "AC4D1492-6751-4358-9338-3641E074E734 - d674b94a2ae7eefc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Movie_Catalog.MovieDetail, Alamofire.AFError&gt;) -&gt; () in Movie_Catalog.MovieService.getMovieDetail(movieId: Swift.Int, completion: (Swift.Result&lt;Movie_Catalog.MovieDetail, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Movie_Catalog"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/joseantoniocamacho/Desktop/J/Movie_Catalog_Swift/Movie_Catalog/Movie_Catalog/Network/MovieService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "336">
+               </Location>
+               <Location
+                  uuid = "AC4D1492-6751-4358-9338-3641E074E734 - d674b94a2ae7eefc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Movie_Catalog.MovieDetail, Alamofire.AFError&gt;) -&gt; () in Movie_Catalog.MovieService.getMovieDetail(movieId: Swift.Int, completion: (Swift.Result&lt;Movie_Catalog.MovieDetail, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Movie_Catalog"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/joseantoniocamacho/Desktop/J/Movie_Catalog_Swift/Movie_Catalog/Movie_Catalog/Network/MovieService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "368">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D4FD5D56-83BE-4086-8DE9-3D49557A01D3"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Movie_Catalog/ViewModel/MovieDetailViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "getMovieDetail(movieId:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D4FD5D56-83BE-4086-8DE9-3D49557A01D3 - 5470d38d31ed477f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Movie_Catalog.MovieDetail, Swift.Error&gt;) -&gt; () in Movie_Catalog.MovieDetailViewModel.getMovieDetail(movieId: Swift.Int, completion: () -&gt; ()) -&gt; ()"
+                  moduleName = "Movie_Catalog"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/joseantoniocamacho/Desktop/J/Movie_Catalog_Swift/Movie_Catalog/Movie_Catalog/ViewModel/MovieDetailViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "244">
+               </Location>
+               <Location
+                  uuid = "D4FD5D56-83BE-4086-8DE9-3D49557A01D3 - 5470d38d31ed477f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Movie_Catalog.MovieDetail, Swift.Error&gt;) -&gt; () in Movie_Catalog.MovieDetailViewModel.getMovieDetail(movieId: Swift.Int, completion: () -&gt; ()) -&gt; ()"
+                  moduleName = "Movie_Catalog"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/joseantoniocamacho/Desktop/J/Movie_Catalog_Swift/Movie_Catalog/Movie_Catalog/ViewModel/MovieDetailViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  uuid = "D4FD5D56-83BE-4086-8DE9-3D49557A01D3 - 5470d38d31ed477f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Movie_Catalog.MovieDetail, Swift.Error&gt;) -&gt; () in Movie_Catalog.MovieDetailViewModel.getMovieDetail(movieId: Swift.Int, completion: () -&gt; ()) -&gt; ()"
+                  moduleName = "Movie_Catalog"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/joseantoniocamacho/Desktop/J/Movie_Catalog_Swift/Movie_Catalog/Movie_Catalog/ViewModel/MovieDetailViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "488">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FA8ECBC6-3E0C-4040-9EE3-98C11405B80B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Movie_Catalog/ViewModel/MovieDetailViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "getMovieDetail(movieId:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "FA8ECBC6-3E0C-4040-9EE3-98C11405B80B - 2684b94dda747be6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Movie_Catalog.MovieDetailViewModel.getMovieDetail(movieId: Swift.Int, completion: () -&gt; ()) -&gt; ()"
+                  moduleName = "Movie_Catalog"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/joseantoniocamacho/Desktop/J/Movie_Catalog_Swift/Movie_Catalog/Movie_Catalog/ViewModel/MovieDetailViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "80">
+               </Location>
+               <Location
+                  uuid = "FA8ECBC6-3E0C-4040-9EE3-98C11405B80B - 5470d38d31ed4494"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Movie_Catalog.MovieDetail, Swift.Error&gt;) -&gt; () in Movie_Catalog.MovieDetailViewModel.getMovieDetail(movieId: Swift.Int, completion: () -&gt; ()) -&gt; ()"
+                  moduleName = "Movie_Catalog"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/joseantoniocamacho/Desktop/J/Movie_Catalog_Swift/Movie_Catalog/Movie_Catalog/ViewModel/MovieDetailViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "88">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

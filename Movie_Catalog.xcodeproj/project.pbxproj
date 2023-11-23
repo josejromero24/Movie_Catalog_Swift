@@ -15,7 +15,10 @@
 		D71276FD2B0E25C300FB63D4 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71276FC2B0E25C200FB63D4 /* UIViewController+Extension.swift */; };
 		D71276FF2B0E4BD400FB63D4 /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71276FE2B0E4BD400FB63D4 /* MovieDetailViewController.swift */; };
 		D71277032B0E4C9800FB63D4 /* MovieDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D71277022B0E4C9800FB63D4 /* MovieDetailViewController.storyboard */; };
+		D71277052B0E713200FB63D4 /* MovieDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71277042B0E713200FB63D4 /* MovieDetailViewModel.swift */; };
+		D71277072B0E723E00FB63D4 /* MovieDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71277062B0E723E00FB63D4 /* MovieDetail.swift */; };
 		D7486F1B2B0DF60200AE923B /* RoundProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7486F1A2B0DF60100AE923B /* RoundProgressBar.swift */; };
+		D76E1E362B0F320000373E18 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76E1E352B0F320000373E18 /* UIImageView+Extension.swift */; };
 		D7D2D91C2B0D15820005AC82 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D2D91B2B0D15820005AC82 /* Movie.swift */; };
 		D7D2D91E2B0D15A60005AC82 /* MovieService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D2D91D2B0D15A60005AC82 /* MovieService.swift */; };
 		D7D2D9202B0D15BF0005AC82 /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D2D91F2B0D15BF0005AC82 /* MovieViewModel.swift */; };
@@ -63,7 +66,10 @@
 		D71276FC2B0E25C200FB63D4 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		D71276FE2B0E4BD400FB63D4 /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
 		D71277022B0E4C9800FB63D4 /* MovieDetailViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MovieDetailViewController.storyboard; sourceTree = "<group>"; };
+		D71277042B0E713200FB63D4 /* MovieDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewModel.swift; sourceTree = "<group>"; };
+		D71277062B0E723E00FB63D4 /* MovieDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetail.swift; sourceTree = "<group>"; };
 		D7486F1A2B0DF60100AE923B /* RoundProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundProgressBar.swift; sourceTree = "<group>"; };
+		D76E1E352B0F320000373E18 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		D7D2D91B2B0D15820005AC82 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		D7D2D91D2B0D15A60005AC82 /* MovieService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieService.swift; sourceTree = "<group>"; };
 		D7D2D91F2B0D15BF0005AC82 /* MovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewModel.swift; sourceTree = "<group>"; };
@@ -160,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				D7D2D91B2B0D15820005AC82 /* Movie.swift */,
+				D71277062B0E723E00FB63D4 /* MovieDetail.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -178,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				D7D2D91F2B0D15BF0005AC82 /* MovieViewModel.swift */,
+				D71277042B0E713200FB63D4 /* MovieDetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -271,6 +279,7 @@
 			children = (
 				D7E52D852B0E09FE004ACCC5 /* UIColor+Extension.swift */,
 				D71276FC2B0E25C200FB63D4 /* UIViewController+Extension.swift */,
+				D76E1E352B0F320000373E18 /* UIImageView+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -518,6 +527,7 @@
 			files = (
 				D71276FD2B0E25C300FB63D4 /* UIViewController+Extension.swift in Sources */,
 				D7D2D9292B0D39420005AC82 /* AlamofireUtils.swift in Sources */,
+				D76E1E362B0F320000373E18 /* UIImageView+Extension.swift in Sources */,
 				D7486F1B2B0DF60200AE923B /* RoundProgressBar.swift in Sources */,
 				D7D95AE62B0D0CC00093F9C3 /* ViewController.swift in Sources */,
 				D71276FF2B0E4BD400FB63D4 /* MovieDetailViewController.swift in Sources */,
@@ -528,6 +538,8 @@
 				D7D2D91C2B0D15820005AC82 /* Movie.swift in Sources */,
 				D7D95AE42B0D0CC00093F9C3 /* SceneDelegate.swift in Sources */,
 				D7D2D91E2B0D15A60005AC82 /* MovieService.swift in Sources */,
+				D71277072B0E723E00FB63D4 /* MovieDetail.swift in Sources */,
+				D71277052B0E713200FB63D4 /* MovieDetailViewModel.swift in Sources */,
 				D7D2D9202B0D15BF0005AC82 /* MovieViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

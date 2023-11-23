@@ -26,4 +26,24 @@ class MovieService {
             }
         }
     }
+    
+    
+    
+    func getMovieDetail(movieId: Int, completion: @escaping (Result<MovieDetail, Error>) -> Void) {
+        
+           let headers = AlamofireUtils.createHeaders()
+           let urlString = "https://api.themoviedb.org/3/movie/\(movieId)?language=en-US"
+        
+        
+        AF.request(urlString,method: .get, headers: headers).responseDecodable(of: MovieDetail.self) { response in
+            switch response.result {
+            case .success(let movieDetails):
+                completion(.success(movieDetails))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+        
+    }
+   
 }

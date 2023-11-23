@@ -17,4 +17,8 @@ class AlamofireUtils {
         
         return headers
     }
+    
+    static func getUrlBaseImage() -> String {
+        return "https://image.tmdb.org/t/p/w500/"
+    }
 }

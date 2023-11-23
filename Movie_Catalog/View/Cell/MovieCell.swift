@@ -10,7 +10,6 @@ import Kingfisher
 
 
 class MovieCell: UITableViewCell {
-    let urlBaseImage = "https://image.tmdb.org/t/p/w500/"
     
 // We make an override of setSelected to set the color to white so that it does not remain "pressed".
        override func setSelected(_ selected: Bool, animated: Bool) {
@@ -59,7 +58,7 @@ class MovieCell: UITableViewCell {
         // Set the google url as default image url
         var url = "https://www.google.es"
         if !urlFromImage.isEmpty {
-            url = "\(urlBaseImage)\(urlFromImage)"
+            url = "\(AlamofireUtils.getUrlBaseImage())\(urlFromImage)"
         }
         return URL(string: url)!
     }
