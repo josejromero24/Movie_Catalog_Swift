@@ -25,4 +25,9 @@ extension UIColor {
             alpha: alpha
         )
     }
+    
+    
+        static let mainColor = UIColor(named: "primaryColor")
+   
+
 }
