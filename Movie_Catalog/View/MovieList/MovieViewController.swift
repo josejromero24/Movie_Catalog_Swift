@@ -38,7 +38,7 @@ class MovieViewController: UIViewController, UITableViewDelegate {
     }
     
     func configureTableView(){
-        self.isShowLoader()
+        self.isShowLoader(viewModel: viewModel, loaderIndicator: loaderIndicator, showLoader: true)
         tableView.dataSource = self
         tableView.delegate = self
         tableView.prefetchDataSource = self
@@ -47,31 +47,30 @@ class MovieViewController: UIViewController, UITableViewDelegate {
     }
     
     func loadMovies() {
-        self.isShowLoader()
+        
+        self.isShowLoader(viewModel: viewModel, loaderIndicator: loaderIndicator, showLoader: true)
         viewModel.getMovies { [weak self] in
             DispatchQueue.main.async {
-                self?.isShowLoader()
+                
+                if let loader = self?.loaderIndicator {
+                    self?.isShowLoader(viewModel: self?.viewModel, loaderIndicator: loader, showLoader: false)
+                } else {
+                    print("Activity indicator view is nil")
+                }
+                
                 self?.tableView.reloadData()
             }
         }
     }
     
     
-    func isShowLoader() {
-        if viewModel.showLoader == true {
-            self.loaderIndicator.startAnimating()
-            self.loaderIndicator.isHidden = false
-        } else {
-            self.loaderIndicator.stopAnimating()
-            self.loaderIndicator.isHidden = true
-        }
-      }
+    
     
     // Hide the keyboard when scrolling
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         view.endEditing(true)
     }
-
+    
     // Hide the keyboard when tap on list
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
@@ -86,18 +85,18 @@ extension MovieViewController: UITableViewDataSource, UITableViewDataSourcePrefe
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            let movie = viewModel.movie(at: indexPath.row)
-            let cell = tableView.dequeueReusableCell(withIdentifier: nameCell, for: indexPath) as! MovieCell
-            cell.layoutIfNeeded()
-            cell.configureCell(movie: movie)
-            updateCell(indexPath: indexPath)
-            return cell
+        let movie = viewModel.movie(at: indexPath.row)
+        let cell = tableView.dequeueReusableCell(withIdentifier: nameCell, for: indexPath) as! MovieCell
+        cell.layoutIfNeeded()
+        cell.configureCell(movie: movie)
+        updateCell(indexPath: indexPath)
+        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-          viewModel.didSelectRow(at: indexPath, navigationController: navigationController)
-      }
-
+        viewModel.didSelectRow(at: indexPath, navigationController: navigationController)
+    }
+    
     
     // We do the update to show the scroll placeholder or not without having to scroll first to refresh the view
     func updateCell(indexPath: IndexPath) {
@@ -126,8 +125,8 @@ extension MovieViewController: UITableViewDataSource, UITableViewDataSourcePrefe
 extension MovieViewController: UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         DispatchQueue.main.async {
-        self.viewModel.searchMovieByTitle(with: searchText)
+            self.viewModel.searchMovieByTitle(with: searchText)
             self.tableView.reloadData()
         }
-       }
+    }
 }

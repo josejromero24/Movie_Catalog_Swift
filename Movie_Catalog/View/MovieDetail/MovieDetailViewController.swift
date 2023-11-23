@@ -22,15 +22,24 @@ class MovieDetailViewController: UIViewController{
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var tvOverview: UITextView!
     
+    @IBOutlet weak var loaderIndicator: UIActivityIndicatorView!
     @IBOutlet weak var lblRating: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureNavigation()
         self.loadMovieDetail()
         
+        viewModel.showError = {
+            DispatchQueue.main.async {
+                self.showAlert(self.viewModel.errorMessage, reloadData: {
+                    self.loadMovieDetail()
+                })
+            }
+        }
     }
     
     func configureNavigation(){
+        self.isShowLoader(viewModel: viewModel, loaderIndicator: loaderIndicator, showLoader: true)
         self.title = NSLocalizedString("detailsTitle", comment: "")
         let backButton = UIBarButtonItem()
         backButton.title = NSLocalizedString("movieListTitle", comment: "")
@@ -39,12 +48,30 @@ class MovieDetailViewController: UIViewController{
     
     
     func loadMovieDetail() {
-        
         viewModel.getMovieDetail(movieId: movieID) { [weak self] in
             DispatchQueue.main.async {
+                
+                if let loader = self?.loaderIndicator {
+                    self?.isShowLoader(viewModel: self?.viewModel, loaderIndicator: loader, showLoader: false)
+                } else {
+                    print("Activity indicator view is nil")
+                }
                 self?.configureView()
+                
             }
         }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     }
     
     

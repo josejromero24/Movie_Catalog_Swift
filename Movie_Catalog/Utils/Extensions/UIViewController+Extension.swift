@@ -16,4 +16,14 @@ extension UIViewController {
         alert.addAction(tapOkAction)
         self.present(alert, animated: true, completion: nil)
     }
+    
+    func isShowLoader<ViewModel>(viewModel: ViewModel, loaderIndicator: UIActivityIndicatorView, showLoader: Bool){
+        if showLoader == true {
+            loaderIndicator.startAnimating()
+            loaderIndicator.isHidden = false
+        } else {
+            loaderIndicator.stopAnimating()
+            loaderIndicator.isHidden = true
+        }
+      }
 }
