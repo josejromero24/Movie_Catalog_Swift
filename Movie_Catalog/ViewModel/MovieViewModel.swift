@@ -8,14 +8,12 @@
 import Foundation
 import UIKit
 
-
 class MovieViewModel {
     
     var showError: (() -> Void)?
     var errorMessage: String = ""
     var showLoader: Bool = true
-    
-    private var movies: [Movie] = []
+    var movies: [Movie] = []
     private var filteredMovies: [Movie] = []
     private var currentPage = 1
     private var isFilterUsed = false

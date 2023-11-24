@@ -14,7 +14,7 @@ class MovieDetailViewModel {
     var showError: (() -> Void)?
     var errorMessage: String = ""
     
-    private var movieDetail: MovieDetail = MovieDetail(adult: false, backdropPath: "", belongsToCollection: BelongsToCollection(id: 0, name: "", posterPath: "", backdropPath: ""), budget: 0, genres: [Genre(id: 0, name: "")], homepage: "", id: 0, imdbID: "", originalLanguage: "", originalTitle: "", overview: "", popularity: 0.0, posterPath: "", productionCompanies: [ProductionCompany(id: 0, logoPath: "", name: "", originCountry: "")], productionCountries: [ProductionCountry(iso3166_1: "", name: "")], releaseDate: "", revenue: 0, runtime: 0, spokenLanguages: [SpokenLanguage(englishName: "", iso639_1: "", name: "")], status: "", tagline: "", title: "", video: false, voteAverage: 0.0, voteCount: 0)
+     var movieDetail: MovieDetail = MovieDetail(adult: false, backdropPath: "", belongsToCollection: BelongsToCollection(id: 0, name: "", posterPath: "", backdropPath: ""), budget: 0, genres: [Genre(id: 0, name: "")], homepage: "", id: 0, imdbID: "", originalLanguage: "", originalTitle: "", overview: "", popularity: 0.0, posterPath: "", productionCompanies: [ProductionCompany(id: 0, logoPath: "", name: "", originCountry: "")], productionCountries: [ProductionCountry(iso3166_1: "", name: "")], releaseDate: "", revenue: 0, runtime: 0, spokenLanguages: [SpokenLanguage(englishName: "", iso639_1: "", name: "")], status: "", tagline: "", title: "", video: false, voteAverage: 0.0, voteCount: 0)
     
     func getMovieDetail(movieId: Int, completion: @escaping () -> Void) {
         self.showLoader = true

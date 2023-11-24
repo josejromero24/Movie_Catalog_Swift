@@ -10,27 +10,58 @@ import XCTest
 
 final class Movie_CatalogTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
+    func testGetMoviesSuccess() {
+         let viewModel = MovieViewModel()
+         let expectation = self.expectation(description: "getMovies")
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
+         viewModel.getMovies {
+             expectation.fulfill()
+         }
+         waitForExpectations(timeout: 10, handler: nil)
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
+         XCTAssertFalse(viewModel.showLoader, "Show Loader")
+        XCTAssertGreaterThan(viewModel.movies.count, 0, "Number of movies > 0")
+     }
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func testGetMoviesFailure() {
+        let viewModel = MovieViewModel()
+        MovieService.shared.simulateFailure = true
+        let expectation = self.expectation(description: "getMovies completion called")
+
+        viewModel.getMovies {
+            expectation.fulfill()
         }
+
+        waitForExpectations(timeout: 10, handler: nil)
+        XCTAssertEqual(viewModel.numberOfMovies(), 0, "Number of movies should be 0")
+        XCTAssertNotNil(viewModel.errorMessage, "Failure")
     }
 
+    
+    func testSearchMovieByTitleWithResults() {
+        let viewModel = MovieViewModel()
+        let movies = [
+            Movie(adult: false, backdropPath: "/jlkasldalksd.jpg", genreIDS: [0], id: 123, originalLanguage: "en-EN", originalTitle: "Cenicienta", overview: "", popularity: 8.0, posterPath: "/jlkasldalksd.jpg", releaseDate: "2023-09-1", title: "Cenicienta", video: false, voteAverage: 6.0, voteCount: 200),
+            
+            Movie(adult: false, backdropPath: "/jlkasldalksd.jpg", genreIDS: [0], id: 123, originalLanguage: "en-EN", originalTitle: "Bambi", overview: "", popularity: 8.0, posterPath: "/jlkasldalksd.jpg", releaseDate: "2023-09-1", title: "Bambi", video: false, voteAverage: 6.0, voteCount: 200),
+            
+            Movie(adult: false, backdropPath: "/jlkasldalksd.jpg", genreIDS: [0], id: 123, originalLanguage: "en-EN", originalTitle: "Batman", overview: "", popularity: 8.0, posterPath: "/jlkasldalksd.jpg", releaseDate: "2023-09-1", title: "Batman", video: false, voteAverage: 6.0, voteCount: 200)
+        
+        ]
+        
+        viewModel.movies = movies
+
+        let searchText = "Batman"
+        viewModel.searchMovieByTitle(with: searchText)
+
+        XCTAssertTrue(viewModel.getIsFilterUsed(), "After search")
+        XCTAssertEqual(viewModel.numberOfMovies(), 1, "Number of filtered movies == 1")
+        XCTAssertEqual(viewModel.movie(at: 0).title, "Batman", "Wrong movie title")
+    }
+    
+    
+    
+    
+    
+    
 }
